@@ -1,0 +1,5 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: ar_pooling
+  pool: 5
