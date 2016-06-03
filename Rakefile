@@ -1,4 +1,5 @@
 require 'active_record'
+require './connection.rb'
 
 class SeedLoader
   def load_seed
@@ -16,3 +17,5 @@ DatabaseTasks.env = 'development'
 DatabaseTasks.seed_loader = SeedLoader.new
 
 load 'active_record/railties/databases.rake'
+
+Rake::Task.define_task("db:environment")
