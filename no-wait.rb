@@ -1,7 +1,8 @@
 # This code user the NOWAIT locking scheme which will throw an error if a
 # process tries to acquire a lock on a row which is already locked. That means
 # both processes are trying to lock on to the *same* row, which is not we want
-# to select unique row which is available.
+# to select unique row which is available. The end result of this would create
+# just one account which is created by the first child process.
 
 require './connection'
 
@@ -19,6 +20,7 @@ end
 fork { update_function.call(FIRST_USER) }
 fork { update_function.call(SECOND_USER) }
 
+ActiveRecord::Base.connection.reconnect!
 Process.waitall
 
-puts "Number of accounts: ", Account.count
+puts "Number of accounts: #{Account.count}"
