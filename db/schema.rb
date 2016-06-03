@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20160603062429) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "account_pool", force: :cascade do |t|
+  create_table "account_pools", force: :cascade do |t|
     t.integer "account_number"
   end
 

@@ -9,7 +9,7 @@ class CreateUsersAccountsAccountPools < ActiveRecord::Migration
       t.references :user
     end
 
-    create_table :account_pool do |t|
+    create_table :account_pools do |t|
       t.integer :account_number
     end
   end
