@@ -11,7 +11,7 @@ User.destroy_all
 Account.destroy_all
 
 10.times do |count|
-  AccountPool.create(account_number: count)
+  AccountPool.create(account_number: count + 1)
 end
 
 FIRST_USER = User.create(name: 'first')
